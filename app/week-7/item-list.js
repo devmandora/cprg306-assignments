@@ -4,13 +4,11 @@ import Item from './item';
 export default function ItemList({ items }) {
     const [sortedItems, setSortedItems] = useState(items);
 
-    // Function to sort items by name
     function sortByName() {
         const sorted = [...sortedItems].sort((a, b) => a.name.localeCompare(b.name));
         setSortedItems(sorted);
     }
 
-    // Function to sort items by quantity
     function sortByQuantity() {
         const sorted = [...sortedItems].sort((a, b) => parseInt(a.quantity) - parseInt(b.quantity));
         setSortedItems(sorted);

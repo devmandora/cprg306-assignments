@@ -1,27 +1,19 @@
 import { useState } from 'react';
 
 export default function NewItem({ onAddItem }) {
-    // State to manage form inputs for name, quantity, and category
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [category, setCategory] = useState('');
 
-    // Handle form submission
     function handleSubmit(event) {
         event.preventDefault();
-
-        // Create a new item object with a unique ID
         const newItem = {
-            id: Date.now().toString(), // or you could use a library like uuid for a more unique ID
+            id: Date.now().toString(),
             name,
             quantity,
             category,
         };
-
-        // Call the onAddItem function to add the new item to the list
         onAddItem(newItem);
-
-        // Reset the form fields
         setName('');
         setQuantity('');
         setCategory('');
